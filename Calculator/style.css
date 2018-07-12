@@ -1,0 +1,99 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar{
+  background-color: hsla(172,90%,42%,1);
+  font-family: 'Lato';
+  color: #ffff;
+  width: 100%;
+  height: auto;
+  font-weight: 550;
+  font-size: 110%;
+}
+
+
+#contact-details{
+  display: inline-block;
+  padding: 1% 2%;
+  margin-left: 7%;
+}
+
+#copyright-details{
+  display: inline-block;
+  padding: 1% 2%;
+  margin-left: 50%;
+}
+
+.banner img{
+  margin-top: 1.5%;
+  margin-left: 15%;
+  float: left;
+}
+
+.banner span{
+  font-family: 'Lato';
+  color: hsla(172,90%,42%,1);
+  display: inline-block;
+  margin-top: 3.5%;
+  font-weight: bolder;
+  font-size: 250%;
+  margin-left: 2%;
+}
+
+.calc-body{
+  clear: both;
+}
+
+#input-field{
+  border: 1px solid hsla(172,90%,42%,1);
+    margin-bottom: 1%;
+  background-color: #ffff;
+  display: inline-block;
+  width: 29.5%;
+  color: hsla(172,90%,42%,1);
+  padding: 1.5% 0%;
+}
+
+#output-field{
+  margin-top: 5%;
+  margin-bottom: 1%;
+  margin-left: 10.3%;
+  border: 1px solid hsla(172,90%,42%,1);
+  background-color: #ffff;
+  display: inline-block;
+  width: 29%;
+  color: hsla(172,90%,42%,1);
+  padding: 1.5% 0%;
+}
+
+
+.grid-container{
+  margin-left: 10%;
+  text-align: center;
+  clear: both;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  grid-gap: 0;
+  width: 60%;
+  font-family: 'Lato',cursive;
+}
+
+.item{
+  text-align: center;
+}
+
+.item button{
+  background-color: hsla(172,90%,42%,1);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ffff;
+  padding: 15%;
+  font-size: 140%;
+}
+
+.item button:hover{
+  background-color: hsla(225,50%,40%,1);
+}
