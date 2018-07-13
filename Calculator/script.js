@@ -1,6 +1,4 @@
-console.log("HelloWorld");
-
-var operand = [];
+var previousResult = 0;
 
 function writeInInputField(x)
   {
@@ -16,67 +14,39 @@ function writeInInputField(x)
        }
   }
 
-function concatenateNumber(x,y)
+
+function inv(x)
   {
-    var tmp;
-    x = String(x);
-    y = String(y);
-    tmp = x+y;
-    tmp = Number(tmp);
+    var tmp = x**-(1);
+    return tmp;
+  }  
+
+function fact(x)
+  {
+    if(x == 1 || x == 0)
+      return 1;
+    else
+      return  x*fact(x-1);
+  }
+
+function solveInputField()
+  {
+    var tmp = document.getElementById("input-field").value;
+    tmp = tmp.replace("sqrt","Math.sqrt");
+    tmp = tmp.replace("ans",previousResult);
+    tmp = tmp.replace("^","**");
+    tmp = tmp.replace("tan","Math.tan");
+    tmp = tmp.replace("e","Math.exp(1)");
+    tmp = tmp.replace("log","Math.log10");
+    tmp = tmp.replace("cos","Math.cos");
+    tmp = tmp.replace("PI","Math.PI");
+    tmp = tmp.replace("ln","Math.log");
+    tmp = tmp.replace("sin","Math.sin");
     return tmp;
   }
 
-function segregateInputField()
- {
-   var floatingPointCaught = 0;
-   operand = [];
-   var tmp = 0;
-   var holdingString = document.getElementById("input-field").value;
-  for(var i = 0;i < holdingString.length; i++)
-    {
-      if(holdingString[i] == '+' || holdingString[i] == '-' || holdingString[i] == '*' || holdingString[i] == '/' || holdingString[i] == '%' || holdingString[i] == '('  || holdingString[i] == ')')
-        {
-          if(holdingString[i-1] != '+' && holdingString[i-1] != '-' && holdingString[i-1] != '*' && holdingString[i-1] != '/' && holdingString[i-1] != '%' && holdingString[i-1] != '('  && holdingString[i-1] != ')')
-            {
-              operand.push(tmp);
-            }
-          tmp = 0;
-          floatingPointCaught = 0;
-          operand.push(holdingString[i]);
-        }
 
-      else if(holdingString[i] == '=')
-        {
-          if(holdingString[i-1] != '+' && holdingString[i-1] != '-' && holdingString[i-1] != '*' && holdingString[i-1] != '/' && holdingString[i-1] != '%' && holdingString[i-1] != '('  && holdingString[i-1] != ')')
-            {
-              operand.push(tmp);
-            }
-          tmp = 0;
-          floatingPointCaught = 0;
-          console.log(operand);
-        }
-
-      else
-         {
-           if(floatingPointCaught != 0)
-             {
-               tmp = concatenateNumber(tmp,"0."+holdingString[i]);
-               floatingPointCaught = 0;
-             }
-           else
-            {
-              tmp = concatenateNumber(tmp,holdingString[i]);
-            }
-
-           if(holdingString[i] == '.')
-              {
-                floatingPointCaught++;
-              }
-         }
-
-    }
- }
-
+//**********************Adding Event Listener to Buttons**************************************************
 
 document.getElementById("rad").addEventListener("click",function(){
   writeInInputField(document.getElementById("rad").value);
@@ -154,11 +124,61 @@ document.getElementById(")").addEventListener("click",function(){
   writeInInputField(document.getElementById(")").value);
 });
 
+document.getElementById("inv").addEventListener("click",function(){
+  writeInInputField(document.getElementById("inv").value+"(");
+})
+
+document.getElementById("x^y").addEventListener("click",function(){
+  writeInInputField(document.getElementById("x^y").value);
+})
+
+document.getElementById("sqrt").addEventListener("click",function(){
+  writeInInputField(document.getElementById("sqrt").value+"(");
+})
+
+document.getElementById("exp").addEventListener("click",function(){
+  writeInInputField(document.getElementById("exp").value+"(");
+})
+
+document.getElementById("tan").addEventListener("click",function(){
+  writeInInputField(document.getElementById("tan").value+"(");
+})
+
+document.getElementById("e").addEventListener("click",function(){
+  writeInInputField(document.getElementById("e").value);
+})
+
+document.getElementById("log").addEventListener("click",function(){
+  writeInInputField(document.getElementById("log").value+"(");
+})
+
+document.getElementById("cos").addEventListener("click",function(){
+  writeInInputField(document.getElementById("cos").value+"(");
+})
+
+document.getElementById("pi").addEventListener("click",function(){
+  writeInInputField(document.getElementById("pi").value);
+})
+
+document.getElementById("ln").addEventListener("click",function(){
+  writeInInputField(document.getElementById("ln").value+"(");
+})
+
+document.getElementById("sin").addEventListener("click",function(){
+  writeInInputField(document.getElementById("sin").value+"(");
+})
+
+document.getElementById("x!").addEventListener("click",function(){
+  writeInInputField(document.getElementById("x!").value+"(");
+})
+
 document.getElementById("=").addEventListener("click",function(){
-  document.getElementById("output-field").value = "      ANS :  " + eval(document.getElementById("input-field").value);
+  var simplifiedExp = solveInputField();
+  var Result = eval(simplifiedExp);
+  document.getElementById("output-field").value = "      ANS :  " + Result;
   writeInInputField(document.getElementById("=").value);
-  segregateInputField();
   writeInInputField("ce");
+  previousResult = Result
 });
 
 document.getElementById("ans").addEventListener("click",function(){
@@ -169,3 +189,5 @@ document.getElementById("ans").addEventListener("click",function(){
 document.getElementById("ce").addEventListener("click",function(){
   writeInInputField(document.getElementById("ce").value);
 });
+
+//********************************************************************************************
