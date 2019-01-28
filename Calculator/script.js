@@ -1,3 +1,4 @@
+//Scientific Calculuator Source Code
 var previousResult = 0;
 
 function writeInInputField(x)
