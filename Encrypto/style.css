@@ -12,6 +12,10 @@
 	font-weight: 800;
 }
 
+button{
+	font-family: neuropol;
+}
+
 @font-face{
 	font-family: neuropol;
 	src : url('./assets/neuropol.ttf');
