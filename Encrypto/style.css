@@ -1,0 +1,18 @@
+#preloader{
+	width: 100%;
+	height: 100vh;
+	background: #fff
+	  url('./assets/44.gif') no-repeat center;
+	position:fixed;
+	z-index : 100;
+}
+
+.cmp-nm{
+	font-family: neuropol;
+	font-weight: 800;
+}
+
+@font-face{
+	font-family: neuropol;
+	src : url('./assets/neuropol.ttf');
+}
